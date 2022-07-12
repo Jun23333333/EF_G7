@@ -38,7 +38,6 @@ public class FunctionServlet extends HttpServlet {
         switch (action) {
             case "lista":
                 request.setAttribute("listaFuncion", functionDao.listarFunciones());
-                request.setAttribute("listaPeliculas",movieDao.obtenerPeliculas());
                 view = request.getRequestDispatcher("functions/lista.jsp");
                 view.forward(request, response);
                 break;
