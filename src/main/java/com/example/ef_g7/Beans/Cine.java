@@ -7,6 +7,16 @@ public class Cine {
     private Cadena cadena;
 
     /**
+     * Constructores
+     */
+    public Cine() {
+    }
+
+    public Cine(int idCine) {
+        this.idCine = idCine;
+    }
+
+    /**
      * @return the idCine
      */
     public int getIdCine() {

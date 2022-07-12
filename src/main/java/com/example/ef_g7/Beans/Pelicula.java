@@ -1,9 +1,19 @@
 package com.example.ef_g7.Beans;
 
+
 public class Pelicula {
     private int idPelicula;
     private String nombre;
 
+    /**
+     * Constructores
+     */
+    public Pelicula() {
+    }
+
+    public Pelicula(int idPelicula) {
+        this.idPelicula = idPelicula;
+    }
     /**
      * @return the idPelicula
      */

@@ -1,8 +1,8 @@
 package com.example.ef_g7.Servlets;
 
-import com.example.ef_g7.Daos.Cadena;
-import com.example.ef_g7.Daos.Cartelera;
-import com.example.ef_g7.Daos.Rol;
+import com.example.ef_g7.Daos.FunctionDao;
+import com.example.ef_g7.Daos.MovieDao;
+import com.example.ef_g7.Daos.CinemaDao;
 
 import com.example.ef_g7.Beans.Cartelera;
 import com.example.ef_g7.Beans.Cine;
@@ -60,12 +60,12 @@ public class FunctionServlet extends HttpServlet {
                         response.sendRedirect("EmployeeServlet");
                     }
 
-                    Function fun = functionDao.obtenerFuncion(functionId);
+                    Cartelera fun = functionDao.obtenerFuncion(functionId);
 
                     if (fun != null) {
                         request.setAttribute("funcion", fun);
                         request.setAttribute("listaPeliculas", movieDao.listarPeliculas());
-                        request.setAttribute("listaCines", cinmeaDao.listaCines());
+                        request.setAttribute("listaCines", cinemaDao.listaCines());
                         request.setAttribute("listaFunciones", functionDao.listarFunciones());
                         view = request.getRequestDispatcher("functions/formularioEditar.jsp");
                         view.forward(request, response);
@@ -88,7 +88,7 @@ public class FunctionServlet extends HttpServlet {
                         response.sendRedirect("FunctionServlet?err=Error al borrar la funcion");
                     }
 
-                    Function fun = functionDao.obtenerFuncion(functionId);
+                    Cartelera fun = functionDao.obtenerFuncion(functionId);
 
                     if (fun != null) {
                         try {
@@ -112,7 +112,8 @@ public class FunctionServlet extends HttpServlet {
 
         Cartelera f = new Cartelera();
 
-        String idPelicula = request.getParameter("job_id");
+        String idPelicula = request.getParameter("movie_id");
+
         Pelicula pel = new Pelicula(Integer.parseInt(idPelicula));
         f.setPelicula(pel);
 
@@ -120,14 +121,16 @@ public class FunctionServlet extends HttpServlet {
         Cine cine = new Cine(Integer.parseInt(idCine));
         f.setCine(cine);
 
-        f.setTresD(request.getParameter("tresD"));
-        f.setDoblada(request.getParameter("doblada"));
-        f.setSubtitulada(request.getParameter("subtitulada"));
+        int minSalary = Integer.parseInt(request.getParameter("minSalary"));
+
+        f.setTresD(Integer.parseInt(request.getParameter("tresD")));
+        f.setDoblada(Integer.parseInt(request.getParameter("doblada")));
+        f.setSubtitulada(Integer.parseInt(request.getParameter("subtitulada")));
         f.setHorario(request.getParameter("horario"));
 
         FunctionDao functionDao = new FunctionDao();
 
-        if (request.getParameter("employee_id") == null) {
+        if (request.getParameter("movie_id") == null) {
             try {
                 functionDao.guardarFuncion(f);
                 response.sendRedirect("FunctionServlet?msg=Funcion creada exitosamente");
@@ -135,7 +138,7 @@ public class FunctionServlet extends HttpServlet {
                 response.sendRedirect("FunctionServlet?err=Error al crear funcion");
             }
         } else {
-            f.setIdCadena(Integer.parseInt(request.getParameter("function_id")));
+            f.setIdCartelera(Integer.parseInt(request.getParameter("function_id")));
             try {
                 functionDao.actualizarFuncion(f);
                 response.sendRedirect("FunctionServlet?msg=Funcion actualizada exitosamente");
