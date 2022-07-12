@@ -1,4 +1,6 @@
-package Beans;
+package com.example.ef_g7.Beans;
+import com.example.ef_g7.Beans.Pelicula;
+import com.example.ef_g7.Beans.Cine;
 
 public class Cartelera {
     private int idCartelera;

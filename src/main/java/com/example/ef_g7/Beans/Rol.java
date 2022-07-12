@@ -1,4 +1,4 @@
-package Beans;
+package com.example.ef_g7.Beans;
 
 public class Rol {
     private int idRol;

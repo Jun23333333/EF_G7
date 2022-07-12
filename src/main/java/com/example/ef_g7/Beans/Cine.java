@@ -1,4 +1,5 @@
-package Beans;
+package com.example.ef_g7.Beans;
+import com.example.ef_g7.Beans.Cadena;
 
 public class Cine {
     private int idCine;
