@@ -104,7 +104,37 @@
         <td><%=i%></td>
         <td><%=funcion.getCine().getCadena().getNombreComercial()%></td>
         <td><%=funcion.getCine().getNombre()%>></td>
-        <td><%=funcion.getPelicula()%>></td>
+        <%if(funcion.getTresD()==1){
+              if(funcion.getDoblada()==1){
+                if(funcion.getSubtitulada()==1){ %>
+                  <td><%=funcion.getPelicula()+"- 3D Subttulada Doblada"%></td>
+                <% }
+                else{ %>
+                  <td><%=funcion.getPelicula()+"- 3D Doblada"%></td>
+                <% }
+              }else{
+                if(funcion.getSubtitulada()==1){ %>
+                <td><%=funcion.getPelicula()+"- 3D Subttulada"%></td>
+                <% }else{ %>
+                <td><%=funcion.getPelicula()+"- 3D"%></td>
+                <% }
+                }
+        }else{
+                  if(funcion.getSubtitulada()==1){
+                    if(funcion.getDoblada()==1){ %>
+                      <td><%=funcion.getPelicula()+"- Subtitulada Doblada"%></td>
+                    <% }else{ %>
+                      <td><%=funcion.getPelicula()+"- Subtitulada"%></td>
+                    <% }
+                  }else{
+                      if(funcion.getDoblada()==1){ %>
+        <td><%=funcion.getPelicula()+"- Doblada"%></td>
+                  <%  }else{ %>
+          <td><%=funcion.getPelicula()%></td>
+                  <% }
+                }
+        }%>
+
         <td><%=funcion.getHorario()%></td>
         <td><a href="<%=request.getContextPath()%>/FuncionServlet?action=Editar&id=<%=funcion.getIdCartelera()%>"><botton type="button" class="btn btn-warning">
           Editar
