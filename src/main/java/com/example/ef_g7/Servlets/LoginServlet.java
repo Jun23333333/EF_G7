@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
                 if(usuario != null && usuario.getIdEmpleado() != 0){
                     response.sendRedirect(request.getContextPath());
                 }else{
-                    RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
                     rd.forward(request, response);
                 }
                 break;
@@ -40,12 +40,13 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter("Usuario");
+        String password = request.getParameter("Contra");
 
         LoginDao loginDao = new LoginDao();
 
         Empleado empleado =loginDao.validarUsuarioPassword(username, password);
+        empleado.setRol(loginDao.obtenerRol(empleado.getIdEmpleado()));
 
         if (empleado != null) { //existe usuario y password
             HttpSession session = request.getSession();

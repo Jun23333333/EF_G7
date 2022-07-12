@@ -2,6 +2,7 @@ package com.example.ef_g7.Daos;
 
 import com.example.ef_g7.Beans.Cine;
 import com.example.ef_g7.Beans.Empleado;
+import com.example.ef_g7.Beans.Rol;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,5 +52,35 @@ public class LoginDao extends DaoBase{
         else {
             return null;
         }
+    }
+
+
+    public Rol obtenerRol(int IdUsuario) {
+        Rol rol  = new Rol();
+
+        String sql = "select rol.nombre, rol.idrol from rol\n" +
+                "inner join rolempleado r on rol.idrol = r.idrol\n" +
+                "inner join empleado e on r.idempleado = e.idempleado\n" +
+                "where e.idempleado = ?";
+
+        try (Connection connection = this.getConection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+
+            pstmt.setInt(1, IdUsuario);
+
+            try (ResultSet rs = pstmt.executeQuery();) {
+                if (rs.next()) {
+                    rol.setIdRol(rs.getInt(2));
+                    rol.setNombre(rs.getString(1));
+                }
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return rol;
     }
 }

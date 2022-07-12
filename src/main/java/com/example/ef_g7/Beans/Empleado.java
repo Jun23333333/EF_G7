@@ -15,7 +15,7 @@ public class Empleado {
     private boolean activo;
     private Cine cine;
     private Empleado jefe;
-    private ArrayList<Rol> roles;
+    private Rol rol;
 
     /**
      * @return the idEmpleado
@@ -174,14 +174,11 @@ public class Empleado {
     /**
      * @return the roles
      */
-    public ArrayList<Rol> getRoles() {
-        return roles;
+    public Rol getRol() {
+        return rol;
     }
 
-    /**
-     * @param roles the roles to set
-     */
-    public void setRoles(ArrayList<Rol> roles) {
-        this.roles = roles;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 }
