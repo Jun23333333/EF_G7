@@ -7,6 +7,8 @@ import com.example.ef_g7.Beans.Pelicula;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class FunctionDao extends DaoBase {
@@ -138,6 +140,43 @@ public class FunctionDao extends DaoBase {
         pstmt.setInt(5, cartelera.getDoblada());
         pstmt.setInt(6, cartelera.getSubtitulada());
         pstmt.setString(7, cartelera.getHorario());
+    }
+
+    public Cartelera obtenerFuncionesTresD() {
+
+        Cartelera cartelera = null;
+
+        String sql = "SELECT * FROM cartelera WHERE 3d = 1";
+        try (Connection conn = this.getConection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    cartelera = new Cartelera();
+                    cartelera.setIdCartelera(rs.getInt(1));
+
+                    Pelicula pelicula = new Pelicula();
+                    pelicula.setIdPelicula(rs.getInt(2));
+                    pelicula.setNombre(rs.getString("movie_title"));
+
+                    cartelera.setPelicula(pelicula);
+
+                    Cine cine = new Cine();
+                    cine.setIdCine(rs.getInt(3));
+                    cine.setNombre(rs.getString("cine_name"));
+                    cartelera.setCine(cine);
+
+                    cartelera.setTresD(rs.getInt(4));
+                    cartelera.setDoblada(rs.getInt(5));
+                    cartelera.setSubtitulada(rs.getInt(6));
+                    cartelera.setHorario(rs.getString(7));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return cartelera;
     }
 
 

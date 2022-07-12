@@ -1,5 +1,6 @@
 package com.example.ef_g7.Daos;
 
+import com.example.ef_g7.Beans.Cartelera;
 import com.example.ef_g7.Beans.Pelicula;
 import com.example.ef_g7.Beans.Cine;
 
@@ -29,6 +30,16 @@ public class MovieDao extends DaoBase {
         }
         return listaPeliculas;
     }
+
+    public void contarTresD() {
+
+        String sql = "SELECT count(*) FROM pelicula p \n"
+                + "left join cartelera c on (c.idpelicula = p.idpelicula) \n"
+                + "where c.3d = 1");) {
+
+
+    }
+
 
 
 }
