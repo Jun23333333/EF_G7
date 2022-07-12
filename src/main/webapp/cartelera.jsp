@@ -93,6 +93,8 @@
         <th scope="col">Cine</th>
         <th scope="col">Pelicula</th>
         <th scope="col">Horario</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Borrar</th>
       </tr>
       </thead>
       <tbody>
@@ -104,10 +106,19 @@
         <td><%=funcion.getCine().getNombre()%>></td>
         <td><%=funcion.getPelicula()%>></td>
         <td><%=funcion.getHorario()%></td>
+        <td><botton type="button" class="btn btn-warning">
+          Editar
+        </botton></td>
+        <td><botton type="button" class="btn btn-danger">
+          Borrar
+        </botton></td>
       </tr>
       <%i++;}%>
       </tbody>
     </table>
+    <botton type="button" class="btn btn-success">
+      Agregar
+    </botton>
   </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
