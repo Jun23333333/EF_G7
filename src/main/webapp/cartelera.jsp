@@ -106,19 +106,21 @@
         <td><%=funcion.getCine().getNombre()%>></td>
         <td><%=funcion.getPelicula()%>></td>
         <td><%=funcion.getHorario()%></td>
-        <td><botton type="button" class="btn btn-warning">
+        <td><a href="<%=request.getContextPath()%>/FuncionServlet?action=Editar&id=<%=funcion.getIdCartelera()%>"><botton type="button" class="btn btn-warning">
           Editar
-        </botton></td>
-        <td><botton type="button" class="btn btn-danger">
+        </botton></a></td>
+        <td><a href="<%=request.getContextPath()%>/FuncionServlet?action=Borrar&id=<%=funcion.getIdCartelera()%>"><botton type="button" class="btn btn-danger">
           Borrar
-        </botton></td>
+        </botton></a></td>
       </tr>
       <%i++;}%>
       </tbody>
     </table>
+    <a href="<%=request.getContextPath()%>/FuncionServlet?action=Agregar">
     <botton type="button" class="btn btn-success">
       Agregar
     </botton>
+    </a>
   </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
