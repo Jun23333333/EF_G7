@@ -93,7 +93,7 @@
 <body class="text-center">
 
 <main class="form-signin w-100 m-auto">
-    <form>
+    <form method="post" action="<%=request.getContextPath()%>/LoginServlet">
         <h1 class="h3 mb-3 fw-normal">T3L3 C4MP30N FUTS4L S.A.C 2019</h1>
 
         <div class="form-floating">
@@ -104,6 +104,9 @@
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Contra</label>
         </div>
+        <% if (request.getParameter("error") != null) { %>
+        <div class="text-danger mb-2">Error en usuario o contraseña </div>
+        <%}%>
 
         <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
         <p class="mt-5 mb-3 text-muted">© EF_G7</p>

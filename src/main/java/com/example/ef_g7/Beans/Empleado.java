@@ -8,7 +8,7 @@ public class Empleado {
     private String nombre;
     private String apellido;
     private String dni;
-    private BigDecimal salario;
+    private Float salario;
     private String fechaContrato;
     private String nombreUsuario;
     private int edad;
@@ -76,14 +76,14 @@ public class Empleado {
     /**
      * @return the salario
      */
-    public BigDecimal getSalario() {
+    public Float getSalario() {
         return salario;
     }
 
     /**
      * @param salario the salario to set
      */
-    public void setSalario(BigDecimal salario) {
+    public void setSalario(Float salario) {
         this.salario = salario;
     }
 
