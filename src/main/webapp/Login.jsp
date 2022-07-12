@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: kevin
-  Date: 12/07/2022
-  Time: 11:58
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -97,7 +91,7 @@
         <h1 class="h3 mb-3 fw-normal">T3L3 C4MP30N FUTS4L S.A.C 2019</h1>
 
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="number" class="form-control" id="floatingInput" placeholder="dni">
             <label for="floatingInput">Usuario</label>
         </div>
         <div class="form-floating">
