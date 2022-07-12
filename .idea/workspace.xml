@@ -4,6 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="792d07f6-dfe9-4339-82ee-8526aa00a2b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ef_g7/Daos/DaoBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ef_g7/Daos/LoginDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ef_g7/Servlets/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EF_G7.iml" beforeDir="false" afterPath="$PROJECT_DIR$/EF_G7.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ef_g7/Beans/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ef_g7/Beans/Empleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Login.jsp" afterDir="false" />
     <list default="true" id="792d07f6-dfe9-4339-82ee-8526aa00a2b4" name="Changes" comment="Carpetas">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ef_g7/Servlets/FunctionServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -12,6 +19,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -103,5 +117,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Carpetas" />
     <option name="LAST_COMMIT_MESSAGE" value="Carpetas" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
